@@ -17,6 +17,7 @@ Features:
 • Persistent user progress stored in an SQLite database.
 
 
+
 2. Unscramble Memory Game
 
 • Displays a sequence of letters and digits for a limited time.
@@ -28,7 +29,8 @@ Features:
 • Supports practice, baseline testing, and re-testing.
 
 
-4. Baseline Test and Re-test
+
+3. Baseline Test and Re-test
 
 •	Provides five fixed rounds for each test.
 
@@ -37,7 +39,8 @@ Features:
 •	Compares re-test results with baseline performance to track improvement.
 
 
-5. Adaptive Difficulty
+
+4. Adaptive Difficulty
 
 •	Unscramble practice adjusts difficulty according to rolling accuracy:
 
@@ -50,7 +53,8 @@ Features:
 •	Word Chain Auto mode increases difficulty after two consecutive wins and decreases it after two consecutive losses.
 
 
-6. Word Chain Game
+
+5. Word Chain Game
 
 •	Players begin with a word, and the computer adds another word.
 
@@ -63,7 +67,8 @@ Features:
 •	Hints are limited to maintain the challenge.
 
 
-7. Daily Quests
+
+6. Daily Quests
 
 •	Provides daily memory-training tasks.
 
@@ -74,7 +79,8 @@ Features:
 •	Includes a recall challenge in which users reproduce a previously hidden list.
 
 
-8. Spaced Repetition
+
+7. Spaced Repetition
 
 •	Available through the Review tab.
 
@@ -89,7 +95,8 @@ Features:
 The review scheduler uses a simplified half-life approach inspired by reference [6]. It is not a fitted or scientifically calibrated prediction model.
 
 
-9. Gamification
+
+8. Gamification
 
 •	Experience points (XP).
 
@@ -100,7 +107,8 @@ The review scheduler uses a simplified half-life approach inspired by reference 
 •	Ten achievement badges.
 
 
-10. Progress Dashboard
+
+9. Progress Dashboard
 
 •	Accuracy and level chart.
 
@@ -109,6 +117,8 @@ The review scheduler uses a simplified half-life approach inspired by reference 
 •	Progress summary table.
 
 •	CSV export for further analysis.
+
+
 
 
 
@@ -123,6 +133,8 @@ SQLite: Persistent local database
 Matplotlib: Data visualization
 
 CSV: Progress data export
+
+
 
 
 
@@ -146,6 +158,8 @@ Memory-Quest/
 Note: The database and notebook are included in the structure only if they exist in your project directory. The SQLite database is created when the application initializes it.
 
 The older file memoryquest.py (without the underscore), if present in the outputs folder, is a separate legacy Flask file and is not part of this Gradio build.
+
+
 
 
 Installation and Usage:
@@ -184,6 +198,7 @@ http://127.0.0.1:7860
 Database storage: The application supports persistent database storage through Google Drive. Before launching the application, the optional Drive cell mounts Google Drive and sets the `MQ_DB` environment variable to `/content/drive/MyDrive/memory_quest.db`. User accounts and progress are stored in this database and can persist across Colab runtime resets, provided the database remains in Drive and the Drive setup is completed before launching the application.
 
 
+
 Option 2: Run in Google Colab
 
 Steps
@@ -205,9 +220,12 @@ Database persistence: The optional Google Drive integration stores the SQLite da
 Database storage: By default, the database is stored on the Colab runtime's local disk. It is lost when the runtime resets. The optional Google Drive integration allows the database to persist, provided the Drive setup and database configuration are executed correctly before the application starts.
 
 
+
+
 Adaptive Difficulty Logic
 
 Unscramble Practice: The application uses rolling accuracy to adjust the difficulty level.
+
 
 
 [Rolling accuracy: Action]
@@ -222,6 +240,8 @@ Below 75%: Decrease difficulty
 The thresholds centre the adjustment strategy around a target accuracy of approximately 85% [13].
 
 
+
+
 Word Chain Auto Mode [Performance: Action]
 
 Two consecutive wins: Increase difficulty
@@ -229,6 +249,7 @@ Two consecutive wins: Increase difficulty
 Two consecutive losses: Decrease difficulty
 
 Otherwise: Maintain difficulty
+
 
 
 
@@ -258,6 +279,8 @@ The browser test covered the timed sequence display, hiding, and scrambling beha
 Google Drive integration was used to configure persistent SQLite database storage. The persistence of user data across runtime resets was verified separately only if explicitly tested.
 
 
+
+
 Testing limitations:
 
 - The application was tested in Google Colab; Visual Studio Code execution has not been verified unless separately tested.
@@ -265,6 +288,8 @@ Testing limitations:
 - Gradio 5.50 was used for browser testing. Other versions have not been fully validated.
 
 - Testing covered the features listed above but does not guarantee that every possible edge case is free of defects.
+
+
 
 
 Dependencies and Compatibility:
@@ -275,6 +300,8 @@ The project pins Gradio to the 5.x series because Gradio 6 changed some Blocks o
 compatible Gradio 5.x release, preferably the version tested for this build.
 
 For the most reproducible environment, use a clean Python virtual environment before installing the dependencies.
+
+
 
 
 Important Implementation Notes:
@@ -288,6 +315,8 @@ Important Implementation Notes:
 •	Security: Passwords are hashed with PBKDF2. This protects stored passwords, but does not by itself provide every security control required for a production authentication system.
 
 
+
+
 References:
 
 The adaptive difficulty thresholds and simplified half-life approach follow the references numbered [13] and [6], respectively, in the project's analysis materials. Those specific materials are listed below:
@@ -295,6 +324,8 @@ The adaptive difficulty thresholds and simplified half-life approach follow the 
    [6] Settles, B., & Meeder, B. (2016). *A Trainable Spaced Repetition Model for Language Learning.* In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), 1848–1858. https://doi.org/10.18653/v1/P16-1174
    
    [13] Wilson, R. C., Shenhav, A., Straccia, M., & Cohen, J. D. (2019). *The Eighty Five Percent Rule for optimal learning.* Nature Communications, 10, Article 4646. https://doi.org/10.1038/s41467-019-12552-4
+
+
 
 
 Conclusion:
