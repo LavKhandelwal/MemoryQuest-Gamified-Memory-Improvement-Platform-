@@ -3,44 +3,47 @@
 Memory Quest is a memory-training platform built with Python, Gradio, SQLite, and Matplotlib. It provides interactive memory games, adaptive difficulty, daily challenges, spaced repetition, progress tracking, and gamification to help users practice and monitor their recall performance.
 
 Features:
-1. User Accounts
-•	User registration and login.
-•	Passwords protected using PBKDF2 hashing.
-•	User profiles with age group and learning goal.
-•	Persistent user progress stored in an SQLite database.
+1. User Accounts 
+(i) User registration and login.
 
-2. Unscramble Memory Game
-•	Displays a sequence of letters and digits for a limited time.
-•	Hides and shuffles the sequence before recall.
-•	Requires users to reconstruct the original sequence.
-•	Supports practice, baseline testing, and re-testing.
+(ii) Passwords protected using PBKDF2 hashing.
 
-3. Baseline Test and Re-test
+(iii) User profiles with age group and learning goal.
+
+(iv) Persistent user progress stored in an SQLite database.
+
+3. Unscramble Memory Game
+(i) Displays a sequence of letters and digits for a limited time.
+(ii) Hides and shuffles the sequence before recall.
+(iii) Requires users to reconstruct the original sequence.
+(iv) Supports practice, baseline testing, and re-testing.
+
+4. Baseline Test and Re-test
 •	Provides five fixed rounds for each test.
 •	Establishes a baseline memory performance level.
 •	Compares re-test results with baseline performance to track improvement.
 
-4. Adaptive Difficulty
+5. Adaptive Difficulty
 •	Unscramble practice adjusts difficulty according to rolling accuracy:
 o	Accuracy above 95% increases difficulty.
 o	Accuracy below 75% decreases difficulty.
 •	The thresholds are designed around an 85% target accuracy.
 •	Word Chain Auto mode increases difficulty after two consecutive wins and decreases it after two consecutive losses.
 
-5. Word Chain Game
+6. Word Chain Game
 •	Players begin with a word, and the computer adds another word.
 •	Players must recall the entire chain in the correct order and add a new word.
 •	The first player to make a mistake loses.
 •	Easy, Medium, and Hard modes control computer memory errors and word length.
 •	Hints are limited to maintain the challenge.
 
-6. Daily Quests
+7. Daily Quests
 •	Provides daily memory-training tasks.
 •	Awards experience points (XP) once per quest per day.
 •	Offers a completion bonus for finishing all daily quests.
 •	Includes a recall challenge in which users reproduce a previously hidden list.
 
-7. Spaced Repetition
+8. Spaced Repetition
 •	Available through the Review tab.
 •	Brings back sequences and words that users previously missed.
 •	Each successful recall doubles an item's half-life.
@@ -48,13 +51,13 @@ o	Accuracy below 75% decreases difficulty.
 •	An item becomes due for review when its predicted recall probability falls below 70%.
 The review scheduler uses a simplified half-life approach inspired by reference [6]. It is not a fitted or scientifically calibrated prediction model.
 
-8. Gamification
+9. Gamification
 •	Experience points (XP).
 •	Player levels.
 •	Daily activity streaks.
 •	Ten achievement badges.
 
-9. Progress Dashboard
+10. Progress Dashboard
 •	Accuracy and level chart.
 •	Fourteen-day activity chart.
 •	Progress summary table.
